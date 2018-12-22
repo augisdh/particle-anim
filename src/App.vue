@@ -2,261 +2,40 @@
   <div id="app">
     <div class="nav d-flex-center">
       <div class="container margin-sides d-flex-around">
-        <div class="a d-flex-center" @click="changeComponent" data-comp="particleOne">
-          MODE ONE
+        <div class="link-div d-flex-center" @click="changeComponent">
+          <router-link to="/particle-line" data-comp="ParticleLine">
+            Line mode
+          </router-link>
         </div>
-        <div class="a d-flex-center" @click="changeComponent" data-comp="particleTwo">
-          MODE TWO
-        </div>
-        <div class="a d-flex-center" @click="changeComponent" data-comp="other">
-          MODE THREE
+        <div class="link-div d-flex-center" @click="changeComponent">
+          <router-link to="/particle-snow" data-comp="ParticleSnow">
+            Snow mode
+          </router-link>
         </div>
       </div>
     </div>
-    <ParticleOne v-if="particleMode === true" :configView="{configName: this.configName, configSetup: this.particleConfigs}"></ParticleOne>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ParticleOne from './components/ParticleOne'
-
 export default {
   name: 'App',
-  components: {
-    ParticleOne
-  },
   data () {
     return {
-      particleMode: true,
-      configName: 'particleOne',
-      particleConfigs: {
-        particleOne: {
-          'particles': {
-            'number': {
-              'value': 80,
-              'density': {
-                'enable': true,
-                'value_area': 800
-              }
-            },
-            'color': {
-              'value': '#ffffff'
-            },
-            'shape': {
-              'type': 'circle',
-              'stroke': {
-                'width': 0,
-                'color': '#000000'
-              },
-              'polygon': {
-                'nb_sides': 5
-              },
-              'image': {
-                'src': 'img/github.svg',
-                'width': 100,
-                'height': 100
-              }
-            },
-            'opacity': {
-              'value': 0.5,
-              'random': false,
-              'anim': {
-                'enable': false,
-                'speed': 1,
-                'opacity_min': 0.1,
-                'sync': false
-              }
-            },
-            'size': {
-              'value': 3,
-              'random': true,
-              'anim': {
-                'enable': false,
-                'speed': 40,
-                'size_min': 0.1,
-                'sync': false
-              }
-            },
-            'line_linked': {
-              'enable': true,
-              'distance': 150,
-              'color': '#ffffff',
-              'opacity': 0.4,
-              'width': 1
-            },
-            'move': {
-              'enable': true,
-              'speed': 5,
-              'direction': 'none',
-              'random': false,
-              'straight': false,
-              'out_mode': 'out',
-              'bounce': false,
-              'attract': {
-                'enable': false,
-                'rotateX': 600,
-                'rotateY': 1200
-              }
-            }
-          },
-          'interactivity': {
-            'detect_on': 'canvas',
-            'events': {
-              'onhover': {
-                'enable': true,
-                'mode': 'repulse'
-              },
-              'onclick': {
-                'enable': true,
-                'mode': 'push'
-              },
-              'resize': true
-            },
-            'modes': {
-              'grab': {
-                'distance': 800,
-                'line_linked': {
-                  'opacity': 1
-                }
-              },
-              'bubble': {
-                'distance': 800,
-                'size': 80,
-                'duration': 2,
-                'opacity': 0.8,
-                'speed': 3
-              },
-              'repulse': {
-                'distance': 100,
-                'duration': 0.4
-              },
-              'push': {
-                'particles_nb': 4
-              },
-              'remove': {
-                'particles_nb': 2
-              }
-            }
-          },
-          'retina_detect': true
-        },
-        particleTwo: {
-          'particles': {
-            'number': {
-              'value': 80,
-              'density': {
-                'enable': true,
-                'value_area': 800
-              }
-            },
-            'color': {
-              'value': '#ffffff'
-            },
-            'shape': {
-              'type': 'triangle',
-              'stroke': {
-                'width': 0,
-                'color': '#000000'
-              },
-              'polygon': {
-                'nb_sides': 5
-              },
-              'image': {
-                'src': '',
-                'width': 100,
-                'height': 100
-              }
-            },
-            'opacity': {
-              'value': 0.5,
-              'random': false,
-              'anim': {
-                'enable': false,
-                'speed': 1,
-                'opacity_min': 0.1,
-                'sync': false
-              }
-            },
-            'size': {
-              'value': 10,
-              'random': true,
-              'anim': {
-                'enable': false,
-                'speed': 40,
-                'size_min': 0.1,
-                'sync': false
-              }
-            },
-            'line_linked': {
-              'enable': true,
-              'distance': 150,
-              'color': '#ffffff',
-              'opacity': 0.4,
-              'width': 1
-            },
-            'move': {
-              'enable': true,
-              'speed': 5,
-              'direction': 'none',
-              'random': false,
-              'straight': false,
-              'out_mode': 'out',
-              'bounce': false,
-              'attract': {
-                'enable': false,
-                'rotateX': 600,
-                'rotateY': 1200
-              }
-            }
-          },
-          'interactivity': {
-            'detect_on': 'canvas',
-            'events': {
-              'onhover': {
-                'enable': true,
-                'mode': 'repulse'
-              },
-              'onclick': {
-                'enable': true,
-                'mode': 'push'
-              },
-              'resize': true
-            },
-            'modes': {
-              'grab': {
-                'distance': 800,
-                'line_linked': {
-                  'opacity': 1
-                }
-              },
-              'bubble': {
-                'distance': 800,
-                'size': 80,
-                'duration': 2,
-                'opacity': 0.8,
-                'speed': 3
-              },
-              'repulse': {
-                'distance': 100,
-                'duration': 0.4
-              },
-              'push': {
-                'particles_nb': 4
-              },
-              'remove': {
-                'particles_nb': 2
-              }
-            }
-          },
-          'retina_detect': true
-        }
+      configName: null
+    }
+  },
+  watch: {
+    configName () {
+      if (this.$route.name === 'ParticleLine' || this.$route.name === 'ParticleSnow') {
+        this.$router.go(this.$route.fullPath)
       }
     }
   },
   methods: {
     changeComponent (event) {
-      this.configName = event.target.dataset.comp;
-      (this.configName === 'particleOne' || this.configName === 'particleTwo') ? this.particleMode = true : this.particleMode = false
+      this.configName = event.target.dataset.comp
     }
   }
 }
@@ -302,12 +81,22 @@ export default {
   z-index: 10;
 }
 
-.a {
+.link-div {
   width: 100px;
   height: 50px;
   background-color: rgba(255, 255, 255, .7);
   cursor: pointer;
+  display: flex;
 }
+  .link-div > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #333;
+  }
 
 /* Components */
 .particle-wrap {
