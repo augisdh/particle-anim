@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import 'particles.js'
+
 export default {
   name: 'App',
   data () {
@@ -28,8 +30,11 @@ export default {
   },
   watch: {
     configName () {
-      if (this.$route.name === 'ParticleLine' || this.$route.name === 'ParticleSnow') {
-        this.$router.go(this.$route.fullPath)
+      if (window['pJSDom'] instanceof Array && window['pJSDom'].length > 0) {
+        window['pJSDom'].forEach((item) => {
+          item.pJS.fn.vendors.destroypJS()
+        })
+        window['pJSDom'] = []
       }
     }
   },

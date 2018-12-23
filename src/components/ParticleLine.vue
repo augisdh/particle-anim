@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import 'particles.js'
-
 export default {
   name: 'ParticleLine',
   data () {
@@ -61,9 +59,9 @@ export default {
           'line_linked': {
             'enable': true,
             'distance': 150,
-            'color': '#ffffff',
-            'opacity': 0.4,
-            'width': 1
+            'color': '#416874',
+            'opacity': 0.5,
+            'width': 2
           },
           'move': {
             'enable': true,

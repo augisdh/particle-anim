@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import 'particles.js'
-
 export default {
   name: 'ParticleSnow',
   data () {
