@@ -12,6 +12,11 @@
             Snow mode
           </router-link>
         </div>
+        <div class="link-div d-flex-center" @click="changeComponent">
+          <router-link to="/bouncy-balls" data-comp="BouncyBalls">
+            Bouncy Balls mode
+          </router-link>
+        </div>
       </div>
     </div>
     <router-view></router-view>
